@@ -1,0 +1,148 @@
+/*=========================
+	FONT COLOR
+=========================*/
+
+.lab-timing > span,
+.topbar-contact > li,
+.main-menu ul li a:hover,
+.heading > span,
+.heading h4 span,
+.depart-detail h2:hover,
+.count i,
+.counter-meta > span,
+.heading2 > span,
+.heading2 > h4,
+.branches-detail ul li i,
+.branches-detail ul li span,
+.team h5 i,
+.team > span,
+.team-info > span,
+.test-meta > span,
+.news-detail > a,
+.post-info > li,
+.Address li span,
+.Address li i,
+.widget-title h4 span,
+.pstdate li a,
+.pstdate > li > ul li::before,
+.copyright p a,
+.bottom-menu li a:hover,
+.testi-detail > i,
+.testi-detail h3 span,
+.testi-detail > em,
+.funfact-meta > i,
+.funfact-meta > ins,
+.criteria-detail > h2:hover,
+.abc li a:hover,
+.contact-for-blood > span,
+.widget-title > ins,
+.departs-list li a,
+.support-meta > span,
+.support-meta > i,
+.admin-post > span,
+.admin-post > h4:hover,
+.support-way .heading-3 span,
+.top-heading h3 b,
+.pagin .pageline > a:hover,
+.pagin .pageline > ul li a:hover,
+.criteria-detail > ins,
+.services-links ul li a:hover,
+.single-title > span,
+.services-links > span,
+.heading4 ins,
+.heading4 > span,
+.lab-features ul li i,
+blockquote,
+.widget.categories ul li:hover,
+.widget.lab-links ul li:hover,
+.doctor-contact > span,
+.dr-single-detail ul li i,
+.about-us-meta blockquote::before,
+.team-info h2 a:hover,
+.up-layer ul li h2 a:hover,
+.respnsv-top span i,
+.respnsv-top > a,
+.video-meta > span,
+.text-caro-meta h1 span,
+button.main-btn:hover,
+.main-btn:hover i,
+.recent-post > h2:hover,
+.support-meta > h5 a:hover,
+.test-meta > h2:hover,
+.has-dropdown.active > a,
+.has-dropdown ul li a:hover,
+.responsive-menu-footer > span,
+.counter-meta > h2 a:hover,
+.news-detail > h2 a:hover,
+.lab-links ul li a i,
+.respnsv-top > a.active i,
+.post-info > li::before
+{
+	color:#a12457;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========================
+	BACKGROUND COLOR
+=========================*/
+
+.btn-1,
+.branches li.active,
+.booking,
+.team-carouzel .owl-nav .owl-prev:hover,
+.team-carouzel .owl-nav .owl-next:hover ,
+.owl-dot.active,
+.news-meta > span,
+.pstdate > li::before,
+.funfact-2 > i,
+.blood-groups > li.active a,
+.abc li::before,
+.time-booking,
+.social-linking ul li a:hover,
+.comment-area button,
+.widget.categories ul li:hover span:before,
+.dr-socials a:hover,
+.dr-address > a,
+.lab-contact-detail li i,
+.contact-form button,
+.up-layer > a,
+.widget.newsletter button:hover,
+.widget .recent-post button:hover,
+.search-report::before,
+.servic-criteria .btn-1:hover
+{
+	background:#a12457;	
+	    -webkit-transition: all 0.4s linear 0s;
+  -moz-transition: all 0.4s linear 0s;
+  -ms-transition: all 0.4s linear 0s;
+  -o-transition: all 0.4s linear 0s;
+    transition: all 0.4s linear 0s; 
+}
+
+
+
+/*=========================
+	BORDER COLOR
+=========================*/
+
+.book-room,
+.newsletter button,
+.recent-post button,
+.up-layer > ul,
+.main-menu > ul > li ul,
+.main-menu > div > ul > li ul,
+.blood-groups > li.active a
+{
+	border-color:#a12457;
+}
+

@@ -1,0 +1,522 @@
+@media only screen and (min-width:1366px){
+.margin-adjustment > img{
+	max-width:25%;	
+}
+.search-report{
+	padding:102px 60px;	
+}
+
+}
+
+
+@media screen and (max-width: 980px){
+.theme-layout{padding-top:0 !important;}/*for sticky header*/
+p{font-size:13px !important;}
+ header{display:none;}
+.responsive-menu{display:block;}	
+.container, .container-fluid { padding: 0 15px;}
+.gap {padding: 30px 0;}
+.gap-equipo{padding:0 0;}
+.gap-equipo-foto{padding:0 0 30px 0;}
+
+.lab-departs .btn-1 {
+    float: left;
+    /*width: 100%;*/
+    width: 70%;
+    margin-left: 15% !important;
+    margin-right:15% !important;
+    margin-top: 15px; 
+}
+.select2-selection{
+	width:620px;	
+}
+.funfact {
+    margin-bottom: 50px;
+    /*margin-left: 50px;*/
+    width: 43%;
+}
+
+.overlap{margin-top:0;}
+.owl-nav {
+    bottom: -50px;
+    color: transparent;
+    left: 0;
+    position: absolute;
+}
+.lab-tests{width:50%;}
+.margin-adjustment > img{max-width:25%;}
+.bottombar{text-align:center;}
+.copyright{float:none;}
+.bottom-menu {
+    padding-top: 20px;
+    text-align: center;
+	float:none;
+}
+.top-heading h3,
+.top-heading h3 b{font-size:30px;}
+.team > p{font-size:12px;}
+.pagin{max-width:100%;}
+.abc li{margin-right:25px;}
+.up-layer > a {
+    font-size: 15px;
+    line-height: 48px;
+    width: 48px;
+}
+.up-layer ul li h2{font-size:17px;}
+.upper-meta{
+	bottom:30px;
+	left:30px;	
+}
+.upper-meta h2{font-size:18px;}
+.upper-meta > span {
+    font: 12px/20px "arimo";
+}
+.footer-widget {
+    padding: 40px 51px;
+}
+.abc li a{font-size:12px;}
+.heading h4, .heading ins{font-size:22px;}
+.search-report{
+	width:104%;
+	margin-left:-15px;	
+}
+.testimonial .owl-nav, .testimonial .owl-prev{margin-right:15px;}
+.testimonial .owl-nav {
+    bottom: 30px;
+    left: 340px;
+}
+.news-meta > span{
+	padding:10px 0;
+	width:70px;
+	font-size:14px;	
+}
+.news-detail{
+	float:left;
+	width:100%;
+	padding:10px 0 0;	
+}
+.news-detail > h5{font-size:16px;}
+.post-info > li{font-size:9px;}
+.news-detail > p{font-size:12px;}
+.view-more {
+    margin-top: 10px;
+}
+.owl-dots {
+    left: 70%;
+    position: absolute;
+    top: 70%;
+    transform: translate(-50%);
+}
+.time-booking {
+    border-radius: 5px;
+    float: left;
+    margin-left: 0;
+    padding: 50px;
+    width: 100%;
+}
+.date-book .input-group.date, .time-booking .input-group.date{
+	margin-bottom:5px;	
+}
+.time-booking em{margin-bottom:15px;}
+.time-booking .main-btn {
+    font: 11px/45px "Montserrat";
+    margin-top: 10px;
+    width: 150px;
+}
+.funfact-2{width:50%;}
+.contact-for-blood{text-align:left;}
+.contact-for-blood > span{margin:0;}
+.contact-for-blood .btn-1 {
+    margin-bottom: 20px;
+    margin-right: 0;
+    margin-top: 20px;
+}
+.support-by{padding:13px;}
+.support-meta > h5{font-size:12px;}
+.admin-post{overflow:unset;}
+.departments-list {
+    padding: 17px 20px;
+}
+.departs-list > li {
+    padding-top: 5px;
+}
+.departs-list {
+    width: 50%;
+}
+.depart-meta{width:165px;}
+.depart-detail h5{font-size:12px;}
+.lab-services{padding:10px;}
+.blog-single-meta .news-meta {
+    padding: 30px 100px 30px 30px;
+}
+.social-linking ul li a{
+	margin-bottom: 2px;
+    padding-left: 20px;
+    text-align: left;
+    width: 100%;	
+}
+.blog-single-meta .news-meta {
+    padding: 30px 0 30px 30px;
+}
+.contact-form .merged > div{
+	float:left;
+	width:100%;	
+}
+.contact-form{padding-top:50px;}
+.doctor-contact {
+    float: left;
+    padding-left: 0;
+    padding-top: 30px;
+    width: 100%;
+}
+.address-meta{width:100%;}
+.timings ul li{display:list-item;}
+.timings > span{margin-top:50px;}
+.dr-single-detail {
+    padding: 0 50px 25px;
+}
+.responsive-menu-footer{
+	margin-top:0;
+	position:fixed;
+	bottom:0;
+	left:0;	
+}
+.team h5{
+	font-size:21px !important;	
+}
+
+}
+
+@media (min-width: 1281px) and (max-width: 1500px){
+
+}
+
+@media (max-width: 1409px){
+    .col-sm-4-docs{width:25% !important;}
+}
+@media (min-width: 1281px) and (max-width: 1440px){
+    .col-sm-4-docs{width:25% !important}
+    .counter-meta img{width: 50%;}
+    .counter-meta > h2 {padding-top: 3px;}
+    .count{margin-top: 100px;}
+    .count-one{margin-top: 75px;}
+    }
+@media (max-width: 1280px){
+    .recent-post > p{margin-top:5px;}
+    .footer-widget{padding: 70px 40px;}
+    .team-info{width: calc(100% - 12px); margin-left:5px;}
+    .main-menu > ul > li, .main-menu > div > ul > li{margin-left: 25px;}
+    .counter-meta img{width: 70%;}
+    .count{margin-top: 105px;}
+    .count-one{margin-top: 80px;}
+    .topbar-contact > li{margin-right: 5px !important;}
+    }
+@media (max-width: 1024px){
+    .counter-meta img{width: 75%;}
+    .count{margin-top: 111px;}
+    .count-one{margin-top: 87px;}
+    .counter-meta > h2{ padding-top: 3px;}
+    .footer_izq{min-height: auto}
+    .footer_centro{min-height: auto}
+    .footer_der{min-height: auto}
+    .team-info{width: calc(100% - 20px); padding: 10px 2px;}
+    .team-info.over-top {margin-top: -30px;}
+    .team-info > span {font-size: 10px;}
+    .main-menu > ul > li, .main-menu > div > ul > li{margin-left: 25px;}
+    .main-menu > ul, .main-menu > div > ul{margin-right: 15px;}
+
+    }
+@media (max-width: 768px){
+    .funfact-responsive{margin-left: 210px;}
+    .counter-meta img{width: 80%;}
+    .count{margin-top: 115px;}
+    .count-one{margin-top: 88px;}
+    .footer_izq{min-height: auto}
+    .footer_centro{min-height: auto}
+    .footer_der{min-height: auto}
+    .logo-footer{width: 20%;}
+    .team-info{width: calc(100% - 20px);}
+    .team-info h2{font-size: 10px;}
+    .col-sm-4-docs{width: 33.33333333% !important;}
+    }
+@media (min-width: 732px){
+    .col-sm-4-docs {width: 33.33333333%;float: left;} 
+    .counter-meta > h2{padding-top: 15px;}
+}
+@media (min-width: 736px){
+        .col-sm-4-docs {width: 33.33333333%;float: left;}   
+        .counter-meta > h2{padding-top: 12px;}
+    }
+@media (max-width: 640px){
+    .recent-post > p{margin-top:0;}
+    .team-info{margin-left: 15px;}
+    .funfact-responsive{margin-left: 160px !important;}
+    .col-sm-4-docs {width: 50% !important;}
+    .team-info{width: calc(100% - 30px) !important;}
+    }
+@media (max-width: 667px){
+    .funfact-responsive{margin-left: 170px;}
+    .counter-meta img{width: 50%;}
+    .counter-meta{padding-right: 5px;}
+    .count{margin-top: 68px;}
+    .count-one{margin-top: 44px;}
+    .col-sm-4-docs {width: 50%;float: left;}   
+    .team-info{width: calc(100% - 10px) ; margin-left: 5px;}
+
+    }
+@media (max-width: 568px){
+    .funfact-responsive{margin-left: 130px !important;}
+    .funfact{margin-left: 10px;}
+    .counter-meta img{width: 100%;}
+    .recent-post > p{margin-top:0;}
+    .logo-footer{width: 40%;}
+    .team-info{width: calc(100% - 20px);}
+    .counter-meta img{width: 80%;}
+    .count{margin-top: 82px;}
+    .count-one{margin-top: 57px;}
+    .col-sm-4-docs {width: 50% !important; overflow: hidden;}
+    }
+@media (max-width: 533px){
+    .team-info{margin-left: 9px;}
+    .funfact{width: 45%}
+    .funfact-responsive{margin-left: 100px !important;}
+    .team-info{width: calc(100% - 18px) !important;}
+    }
+@media (max-width: 414px){
+        .footer_izq{min-height: auto}
+        .footer_centro{min-height: auto}
+        .footer_der{min-height: auto}
+        .logo-footer{width: 40%;}
+        .col-sm-4-docs {width: 100% !important; overflow: hidden;}   
+        .col-sm-4-docs img{margin: 0 auto; text-align: center; display: block;}
+        .team-info{width: calc(100% - 120px) !important; margin-left: 60px;}
+        .counter-meta img{width: 40%;}
+        .funfact-responsive{margin-left: 0 !important;}
+        .count{margin-top: 98px;}
+        .count-one{margin-top: 73px;}
+        .manual-pruebas table th,
+        .manual-pruebas table td{
+            width: 25%;
+        }
+    }
+@media (max-width: 412px){
+    .counter-meta img{width: 50%;}
+    .count{margin-top: 125px;}
+    .count-one{margin-top: 98px;}
+    }
+@media (max-width: 375px){
+    .team-info{width: calc(100% - 90px) !important; margin-left: 45px;}
+    .lab-departs .btn-1{width: 90%; margin-left:5% !important; margin-right:5% !important;}
+    .counter-meta img{width: 40%;}
+    .counter-meta > h2{padding-top: 15px;}
+    .count{margin-top: 98px;}
+    .count-one{margin-top: 73px;}
+    }
+
+@media (max-width: 360px){
+    .counter-meta img{width: 50%;}
+    .counter-meta > h2{padding-top: 22px;}
+    .count{margin-top: 120px;}
+    .count-one{margin-top: 90px;}
+    }
+
+@media (max-width: 320px) {
+    .funfact-responsive, .funfact{margin-left: 0 !important;}
+    .count{width: 100px;}
+    .recent-post > p{margin-top:0;}
+    .counter-meta img{width: 50%;}
+    .count{margin-top: 100px;}
+    .count-one{margin-top: 76px;}
+    .team-info{width: calc(100% - 30px) !important; margin-left: 15px;}
+    }
+
+
+@media screen and (max-width: 500px){
+	
+ header{display:none;}
+.responsive-menu{display:block;}	
+.container, .container-fluid { padding: 0 15px;}
+.gap {padding: 70px 0;}
+.heading h4, .heading ins{font-size:16px;}
+.depart-meta{width:100%;}
+.funfact {width:100%;}
+.select2-selection{width:190px;}
+.heading2 h4 i {
+    float: left;
+    width: 100%;
+}
+.branches li{width:100%;}
+.overlap{margin-top:0;}
+.margin-adjustment > img{display:none;}
+.branches-detail > img {
+    overflow:unset;
+    padding-left: 0;
+    width: 100%;
+	margin-top:20px;
+}
+.lab-services{padding:25px;}
+.about-us-meta{padding:10px;}
+.about-us-meta .heading > h4{font-size:14px;}
+.lab-tests {
+    width: 100%;
+}
+.funfact{margin-left:10px;}
+.footer-widget{padding:20px;}
+.bottom-menu {
+    float: left;
+    padding-top: 20px;
+    text-align: center;
+}
+.bottom-menu > li{margin-left:7px;}
+.pagin{padding:10px;}
+.pagin .pageline > a{float:none;}
+.abc li a{font-size:10px;}
+.abc li::before{display:none;}
+.testi-meta{padding:0;}
+.avatar {
+    margin-left: 50%;
+    margin-top: 20px;
+    transform: translate(-50%);
+}
+.testi-detail {
+    float: left;
+    overflow: unset;
+    padding-left: 5px;
+    padding-top: 20px;
+	padding-bottom: 20px;
+}
+.testi-detail::before {
+    bottom: 30px;
+    font-size: 25px;
+    left: 5px;
+}
+.testi-detail::after {
+    bottom: 30px;
+    font-size: 25px;
+    left: 266px;
+}
+.recent-news-detail{padding:0;}
+.news-avatar {
+    left: 0;
+    top: 0;
+}
+.news-meta {
+    float: left;
+    padding: 220px 0 0;
+    width: 100%;
+}
+.bottom-menu li a{font-size:9px;}
+.copyright > p{font-size:12px;}
+.funfact-2{width:100%;}
+.blood-meta > p{ max-width:100%;}
+.blood-groups li a{
+	font:bold 16px/44px "Montserrat";
+	width: 44px;	
+}
+.departments-list > p{
+	max-width:100%;
+	font: 12px/24px "Arimo";	
+}
+.departs-list {
+    width: 100%;
+}
+.heading-3 > p{
+	margin:0;
+	max-width:100%;
+	text-align:left;	
+}
+.support-by{margin-top:20px;}
+.admin-avatar{text-align:left;}
+.admin-post > span {
+    float: left;
+    margin-left: -30px;
+    margin-top: 50px;
+}
+.top-heading h3, .top-heading h3 b {
+    font-size: 20px;
+}
+.single-title > h4{font-size:20px;}
+.single-title{padding-top:20px;}
+.service-single-meta > p{
+	font-size:13px;
+	margin-top:10px;	
+}
+.about-us-meta blockquote{max-width:92%;}
+blockquote{font-size:12px; letter-spacing:0;}
+.lab-features ul li{font-size:12px;}
+.post-avatar{padding:0;}
+.quote-sec > h5{font-size:17px;}
+.author{padding:20px;}
+.author-meta{float:left;padding: 15px 10px;}
+.lab-features > ul{padding-bottom:0;}
+.side-widget{padding:60px 25px;}
+.widget.gallery li,.widget.gallery ul li a{width:100%;}
+.widget.gallery ul li a img {
+    float: left;
+    width: 100%;
+}
+.timings{padding:0;}
+.timings > span {
+    margin-bottom: 50px;
+    margin-left: 50%;
+    text-align: center;
+    transform: translate(-50%);
+}
+.timings > ul{padding-left:30px;}
+.dr-single-detail {
+    padding: 0 10px 15px;
+}
+.dr-single-detail ul li{font-size:11px;}
+.dr-socials {
+    float: right;
+    margin-right: 0;
+    margin-top: 30px;
+}
+.team-info{
+	width:calc(100% - 40px);	
+}
+.blog{
+	padding:0 15px;	
+}
+.news-detail{
+	float:left;
+	width:100%;
+	padding:20px 0;	
+}
+.text-caro-meta > span{font-size:8px; letter-spacing:0.5px;}
+.text-caro-meta > h1 {
+    font: 13px/17px "Montserrat";
+	padding:0;
+}
+.text-caro-meta > p {
+    font-size: 9px !important;
+    line-height: 10px;
+}
+.featurd-posts .text-caro-meta > img {
+    margin: 0 auto;
+    max-width: 100px;
+}
+.video-meta{width:100%;}
+.video-meta > h3{font-size:20px;}
+.video-meta > span{
+	font-size:12px;
+	line-height:10px;	
+}
+.booking{ padding: 40px 50px;}
+.search-report{width:111%;}
+.depart-avatar > img{max-width:100%;}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+

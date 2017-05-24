@@ -1,0 +1,14 @@
+{
+    "name": "maith/lac",
+    "description": "Laboratorio",
+    "require": {
+        "doctrine/dbal": "2.5.12",
+        "swiftmailer/swiftmailer": "5.4.8"
+    },
+    "authors": [
+        {
+            "name": "Rodrigo Santellan",
+            "email": "rsantellan@gmail.com"
+        }
+    ]
+}
