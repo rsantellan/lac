@@ -1,7 +1,7 @@
 <?php
 if ( !$_POST ) exit;
 
-require_once __DIR__.'/swiftmailer/lib/swift_required.php';
+require_once __DIR__.'/vendor/autoload.php';
 
 $ip		 = $_SERVER['REMOTE_ADDR'];
 

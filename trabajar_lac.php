@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		}			
 	}
 	if($err == 0){
-		require_once __DIR__.'/swiftmailer/lib/swift_required.php';
+		require_once __DIR__.'/vendor/autoload.php';
 		ob_start();
 		include ('mail-trabaja-con-nosotros.php');
 		$messageBody = ob_get_clean();
