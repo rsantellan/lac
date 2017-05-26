@@ -10,18 +10,18 @@ $pageQuantity = 0;
 if(isset($_GET['term'])){
 	$issearch = true;
 	$params = [':term' => '%'.$term.'%'];
-	$sql = 'select id, title, body from pruebas where title like :term or body like :term order by title asc';
+	$sql = 'select id, title, body from pruebas_especiales where title like :term or body like :term order by title asc';
 	$data = $dbConnector->runSqlQuery($sql, $params);
 }else{
 	$quantity = 20;
 	$offset = ($page * $quantity);// - $quantity;
-	$quantityOnDb = $dbConnector->runSqlQuery('select count(id) as quantity from pruebas');
+	$quantityOnDb = $dbConnector->runSqlQuery('select count(id) as quantity from pruebas_especiales');
 	$dbQuantity = 0;
 	if(count($quantityOnDb) > 0){
 		$dbQuantity = (int) $quantityOnDb[0]['quantity'];
 	}
 	$pageQuantity = $dbQuantity / $quantity;
-	$data = $dbConnector->runSqlQuery(sprintf('select id, title, body from pruebas order by title asc limit %s offset %s', $quantity, $offset));
+	$data = $dbConnector->runSqlQuery(sprintf('select id, title, body from pruebas_especiales order by title asc limit %s offset %s', $quantity, $offset));
 }
 $dbConnector->closeAll();
 ?>
