@@ -19,7 +19,8 @@
 			  var beachMarker = new google.maps.Marker({
 				  position: myLatLng,
 				  map: map,
-				  icon: image
+				  icon: image,
+				  zoom: 50
 			});
 	
 			}

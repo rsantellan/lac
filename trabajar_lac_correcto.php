@@ -53,7 +53,7 @@
 						</div>
 					</div>
 					<div class="col-md-8">
-						<h1>Se a enviado correctamente su solicitud.</h1>
+						<h4 style="color:#333; font-family:Montserrat; font-size:30px; font-weight:bold; text-transform:uppercase; text-align:center;">Se a enviado correctamente</br><span style="color:#a12457;">su solicitud.</span></h4>
 					</div>
 					</div>
 				</div>

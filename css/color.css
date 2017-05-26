@@ -76,7 +76,8 @@ button.main-btn:hover,
 .news-detail > h2 a:hover,
 .lab-links ul li a i,
 .respnsv-top > a.active i,
-.post-info > li::before
+.post-info > li::before,
+button.bt-search
 {
 	color:#a12457;	
 }
@@ -120,6 +121,7 @@ button.main-btn:hover,
 .widget .recent-post button:hover,
 .search-report::before,
 .servic-criteria .btn-1:hover
+
 {
 	background:#a12457;	
 	    -webkit-transition: all 0.4s linear 0s;

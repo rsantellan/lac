@@ -206,35 +206,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                              <?php if($post && $err > 0): ?>
                              	<?php echo $msg;?>
                              <?php endif;?>          
-							<form class="merged" method="post" id="cvform" enctype="multipart/form-data">
+							<form class="merged" method="post" id="cvform" enctype="multipart/form-data" style="margin-bottom:40px;">
                                 <div class="msg-box"></div>
 								<div class="col-md-12">
-									<input type="text" name="name" placeholder="Nombre Completo" id="name" value="<?php echo $name;?>">
+									<input type="text" name="name" placeholder="Nombre Completo*" id="name" value="<?php echo $name;?>">
 								</div>
 								<div class="col-md-6">
-									<input type="text" name="ci" placeholder="Cédula de Identidad" id="ci" value="<?php echo $ci;?>">
+									<input type="text" name="ci" placeholder="Cédula de Identidad*" id="ci" value="<?php echo $ci;?>">
 								</div>
 								<div class="col-md-6">
 									<input type="text" name="nacionalidad" placeholder="Nacionalidad (opcional)" id="nacionalidad" value="<?php echo $nacionalidad;?>">
 								</div>
 								<div class="col-md-6">
-									<input type="date" class="form-control" name="born" placeholder="Fecha de Nacimiento" id="born" style="padding: 26px 34px;" value="<?php echo $born;?>">
+									<label class="label-born">Fecha de Nacimiento</label>
+									<input type="date" name="born" placeholder="Fecha de Nacimiento" id="born" class="input-born"value="<?php echo $born;?>">
 								</div>
 								<div class="col-md-6">
 									<input type="text" name="profesion" placeholder="Profesión (opcional)" id="profesion" value="<?php echo $profesion;?>">
 								</div>
 								<div class="col-md-6">
-									<input type="text" name="email" placeholder="Email" id="email" value="<?php echo $email;?>">
+									<input type="text" name="email" placeholder="Email*" id="email" value="<?php echo $email;?>">
 								</div>
 								<div class="col-md-6">
 									<input type="text" name="telefono" placeholder="Teléfono (opcional)" id="telefono" value="<?php echo $telefono;?>">
 								</div>
 								<div class="col-md-6">
-									<input id="uploadFile" class="disableInputField" placeholder="Adjuntar CV" disabled="disabled" />
+									<label class="adj-trab">Adjuntar CV</label>
 									<input id="uploadBtn" type="file" class="upload" name="cvFile" />								
 								</div>
 								<div class="col-md-6">
-									<input id="uploadFile" class="disableInputField" placeholder="Adjuntar Foto" disabled="disabled" />
+									<label class="adj-trab">Adjuntar Foto</label>
 									<input id="uploadBtn" type="file" class="upload" name="photoFile" />		
 								</div>
 								<button id="submit" type="submit">ENVIAR CV</button>

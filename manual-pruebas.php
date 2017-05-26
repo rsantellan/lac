@@ -3,16 +3,26 @@ require_once __DIR__.'/vendor/autoload.php';
 require_once __DIR__.'/DbConnector.php';
 
 $page = isset($_GET['page']) ? (int) $_GET['page'] : 0;
+$term = isset($_GET['term']) ? $_GET['term'] : '';
 $dbConnector = new DbConnector();
-$quantity = 2;
-$offset = ($page * $quantity);// - $quantity;
-$quantityOnDb = $dbConnector->runSqlQuery('select count(id) as quantity from pruebas');
-$dbQuantity = 0;
-if(count($quantityOnDb) > 0){
-	$dbQuantity = (int) $quantityOnDb[0]['quantity'];
+$issearch = false;
+$pageQuantity = 0;
+if(isset($_GET['term'])){
+	$issearch = true;
+	$params = [':term' => '%'.$term.'%'];
+	$sql = 'select id, title, body from pruebas where title like :term or body like :term order by title asc';
+	$data = $dbConnector->runSqlQuery($sql, $params);
+}else{
+	$quantity = 20;
+	$offset = ($page * $quantity);// - $quantity;
+	$quantityOnDb = $dbConnector->runSqlQuery('select count(id) as quantity from pruebas');
+	$dbQuantity = 0;
+	if(count($quantityOnDb) > 0){
+		$dbQuantity = (int) $quantityOnDb[0]['quantity'];
+	}
+	$pageQuantity = $dbQuantity / $quantity;
+	$data = $dbConnector->runSqlQuery(sprintf('select id, title, body from pruebas order by title asc limit %s offset %s', $quantity, $offset));
 }
-$pageQuantity = $dbQuantity / $quantity;
-$data = $dbConnector->runSqlQuery(sprintf('select id, title, body from pruebas order by title asc limit %s offset %s', $quantity, $offset));
 $dbConnector->closeAll();
 ?>
 <!DOCTYPE html>
@@ -58,6 +68,23 @@ $dbConnector->closeAll();
 			</div>
 		</div>
 	</section><!-- intro section -->
+
+	<section>
+		<div class="gap no-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="lab-departs">
+							<form class="search-form" method="get" action="manual-pruebas.php">
+									<input type="search" value="<?php echo $term;?>" results="5" placeholder="BUSCAR" name="term">
+									<button class="bt-search"><i class="fa fa-search"></i></button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!-- intro section -->
 	<?php
 	$loopcounter = 0;
 	?>
@@ -75,7 +102,7 @@ $dbConnector->closeAll();
 						</div>
 					</div>
 	<?php $loopcounter ++ ; 
-	if($loopcounter > 2){
+	if($loopcounter > 1){
 		$loopcounter = 0;
 	}	
 	?>
@@ -101,7 +128,13 @@ $dbConnector->closeAll();
 								<div class="pagin" style="margin-bottom:30px;">
 									<div class="pageline">
 										<?php if($page > 0): ?>
-										<a href="#" title="">anterior</a>
+										<?php 
+											$prevUrl = 'manual-pruebas.php';
+											if($page > 1){
+												$prevUrl .= '?page='.($page-1);
+											}
+										?>
+										<a href="<?php echo $prevUrl;?>" title="">anterior</a>
 										<?php endif; ?>
 										<?php if($page + 1 < $pageQuantity ): ?>
 										<a href="manual-pruebas.php?page=<?php echo $page + 1;?>" title="">siguiente</a>

@@ -3459,9 +3459,30 @@ blockquote {
     background: none !important;
 }
 
+label.adj-trab{
+  width: 30% !important;
+  float: left !important;
+  font: 11px "Montserrat";  
+  color: #666 !important;
+  padding-top: 13px;
+}
+label.label-born{
+  width: 40% !important;
+  float: left !important;
+  font: 11px "Montserrat";  
+  color: #666 !important;
+  padding-top: 13px;
+}
+input.input-born{
+  padding: 18px 34px !important;
+  float: left;
+  width: 60% !important;
+}
+
+
 .contact-form form input.upload{
   background: none;
-  width: 50%;
+  width: 70%;
   float: left;
   padding: 10px 0 !important;
 }
@@ -3486,6 +3507,47 @@ blockquote {
   float: left;
   width: 100%;
 }
+form.search-form{
+  margin: 0 auto;
+  width: 50%;
+  display: block; 
+}
+input[type=search] { 
+  text-align: left;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto; 
+  width: 90%; 
+  background: #fafafa;
+  border: medium none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  color: #858585;
+  float: left;
+  font: 11px "Montserrat";
+  letter-spacing: 0.3px;
+  padding: 20px 34px;
+  text-transform: capitalize;
+}
+button.bt-search {
+  border: medium none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background: none;
+  float: left;
+  color: #fff;
+  font: 25px "Montserrat";
+  letter-spacing: 0.3px;
+  padding: 10px 0 0 10px;
+  text-transform: uppercase;
+    width: 10%;
+  }
 .gen-map {
   float: left;
   width: 100%;

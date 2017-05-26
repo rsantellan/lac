@@ -36,7 +36,12 @@ class DbConnector
 		if(count($params) == 0){
 			$sth = $this->dbh->query($sql);
 		}else{
-			$sth = $this->dbh->query($sql, $params);
+			$sth = $this->dbh->prepare($sql);
+			foreach($params as $key => $value){
+				$sth->bindValue($key, $value);
+			}
+			$sth->execute();
+			//$sth = $this->dbh->query($sql, $params);
 		}
 		if($sth == null){
 			return null;
