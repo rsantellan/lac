@@ -9,8 +9,8 @@ $issearch = false;
 $pageQuantity = 0;
 if(isset($_GET['term'])){
 	$issearch = true;
-	$params = [':term' => '%'.$term.'%'];
-	$sql = 'select id, title, body from pruebas_especiales where title like :term or body like :term order by title asc';
+	$params = [':term' => '%'.strtoupper($term).'%'];
+	$sql = 'select id, title, body from pruebas_especiales where upper(title) like :term or upper(body) like :term order by title asc';
 	$data = $dbConnector->runSqlQuery($sql, $params);
 }else{
 	$quantity = 20;
