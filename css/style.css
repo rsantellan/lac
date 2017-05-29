@@ -3508,9 +3508,10 @@ input.input-born{
   width: 100%;
 }
 form.search-form{
-  margin: 0 auto;
+  margin: 0 auto 15px auto;
   width: 50%;
   display: block; 
+  overflow: hidden;
 }
 input[type=search] { 
   text-align: left;
@@ -3548,6 +3549,18 @@ button.bt-search {
   text-transform: uppercase;
     width: 10%;
   }
+p.resultados{
+  text-align: center;
+  font: 13px "Montserrat";
+  text-transform: uppercase;
+}
+p.resultados span{
+  color: #a12457;
+  font-weight: 600;
+}
+.resultados-none{
+  margin-bottom: 60px;
+}
 .gen-map {
   float: left;
   width: 100%;

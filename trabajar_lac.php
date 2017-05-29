@@ -105,8 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		ob_start();
 		include ('mail-trabaja-con-nosotros.php');
 		$messageBody = ob_get_clean();
-		$from = 'info@rodrigosantellan.com';
-		$address = "rsantellan@gmail.com";
+		$from = 'laura@lauranozar.com';
+		$address = "laura@lauranozar.com";
 		$e_subject = 'Contacto vía Sitio web. Trabaja con nosotros';
 		// Create the message
 		$message = Swift_Message::newInstance()
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		  ->setFrom($from)
 
 		  // Set the To addresses with an associative array
-		  ->setTo(array('rsantellan@gmail.com'))
+		  ->setTo(array($address))
 
 		  // Give it a body
 		  ->setBody($messageBody, 'text/html');

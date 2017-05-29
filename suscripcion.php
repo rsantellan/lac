@@ -18,8 +18,8 @@ if($err == 1){
 	echo $msg;
 	exit;
 }
-$from = 'info@rodrigosantellan.com';
-$address = "rsantellan@gmail.com";
+$from = 'laura@lauranozar.com';
+$address = "laura@lauranozar.com";
 $e_subject = 'Contacto vía Sitio web. Usuario en newsletter';
 ob_start();
 include ('mail-suscripcion.php');

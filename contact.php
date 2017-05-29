@@ -40,8 +40,8 @@ if($err == 1){
 if ( get_magic_quotes_gpc() ) {
     $comments = stripslashes( $comments );
 }
-$from = 'info@rodrigosantellan.com';
-$address = "rsantellan@gmail.com";
+$from = 'laura@lauranozar.com';
+$address = "laura@lauranozar.com";
 $e_subject = 'Contacto vía Sitio web';
 ob_start();
 include ('mail-contacto.php');
@@ -57,7 +57,7 @@ $message = Swift_Message::newInstance()
   ->setFrom($from)
 
   // Set the To addresses with an associative array
-  ->setTo(array('rsantellan@gmail.com'))
+  ->setTo(array($address))
 
   // Give it a body
   ->setBody($messageBody, 'text/html');
