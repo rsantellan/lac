@@ -20,7 +20,7 @@ if(isset($_GET['term'])){
 	if(count($quantityOnDb) > 0){
 		$dbQuantity = (int) $quantityOnDb[0]['quantity'];
 	}
-	$pageQuantity = $dbQuantity / $quantity;
+	$pageQuantity = (int) ($dbQuantity / $quantity);
 	$data = $dbConnector->runSqlQuery(sprintf('select id, title, body from pruebas order by title asc limit %s offset %s', $quantity, $offset));
 }
 $dbConnector->closeAll();
@@ -79,6 +79,13 @@ $dbConnector->closeAll();
 									<input type="search" value="<?php echo $term;?>" results="5" placeholder="BUSCAR" name="term">
 									<button class="bt-search"><i class="fa fa-search"></i></button>
 							</form>
+							<?php if($issearch): ?>
+								<?php if(count($data) > 0): ?>
+									<p class="resultados">Su búsqueda arrojó <span><?php echo count($data);?></span> resultados</p>
+								<?php else: ?>
+									<p class="resultados resultados-none">No se encontraron coincidencias para su búsqueda.</p>
+								<?php endif; ?>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>
@@ -127,6 +134,19 @@ $dbConnector->closeAll();
 					<div class="col-md-12">
 								<div class="pagin" style="margin-bottom:30px;">
 									<div class="pageline">
+										<?php 
+											$deltaPager = 2; 
+											$start = $page - $deltaPager;
+											$finish = $page + $deltaPager;
+											if($start < 0){
+												$start = 0;
+												$finish = $page + (2 * $deltaPager);
+											}
+											if($finish > $pageQuantity - 1){
+												$finish = $pageQuantity - 1;
+												$start = $pageQuantity - (2 * $deltaPager) - 1;
+											}
+										?>
 										<?php if($page > 0): ?>
 										<?php 
 											$prevUrl = 'manual-pruebas.php';
@@ -139,14 +159,25 @@ $dbConnector->closeAll();
 										<?php if($page + 1 < $pageQuantity ): ?>
 										<a href="manual-pruebas.php?page=<?php echo $page + 1;?>" title="">siguiente</a>
 										<?php endif; ?>
-										<?php $pageCounter = 0;?>
+										<?php 
+											$pageCounter = 0;
+											$doDots = true;
+										?>
 										<ul>
 											<?php while($pageCounter < $pageQuantity): ?>
-												<?php if($pageCounter == $page): ?>
-													<li><a href="#" title="" class="current"><?php echo sprintf("%02d", $pageCounter + 1) ?></a></li>
+												<?php if(($pageCounter == 0 || $pageCounter == ($pageQuantity -1)) || ($pageCounter == $page) || ($pageCounter >= $start && $pageCounter <= $finish) ): ?>
+													<?php if($pageCounter == $page): ?>
+														<li><a href="#" title="" class="current"><?php echo sprintf("%02d", $pageCounter + 1) ?></a></li>
+													<?php else: ?>
+														<li><a href="manual-pruebas.php<?php if($pageCounter > 0):?>?page=<?php echo $pageCounter;?><?php endif;?>" title=""><?php echo sprintf("%02d", $pageCounter + 1) ?></a></li>
+													<?php endif; ?>
+													<?php $doDots = true;?>
 												<?php else: ?>
-													<li><a href="manual-pruebas.php<?php if($pageCounter > 0):?>?page=<?php echo $pageCounter;?><?php endif;?>" title=""><?php echo sprintf("%02d", $pageCounter + 1) ?></a></li>
-												<?php endif; ?>
+													<?php if($doDots): ?>
+														<li>...</li>
+														<?php $doDots = false;?>
+													<?php endif;?>
+												<?php endif;?>
 												<?php $pageCounter ++;?>
 											<?php endwhile; ?>
 										</ul>
