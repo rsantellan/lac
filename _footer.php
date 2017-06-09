@@ -39,7 +39,7 @@
 								<div class="widget trabaja">
 									<div class="recent-post">
 										<p>Contamos con un equipo de profesionales actualizados que se desempe&ntilde;a con calidez. Complet&aacute; el formulario para formar parte del equipo LAC.</p>
-										<form method="post" action="/trabajar_lac.php">
+										<form action="/trabajar_lac.php">
 											<button><i class="fa"></i>enviar CV</button>
 										</form>
 									</div>

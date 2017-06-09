@@ -47,6 +47,7 @@ $ci		 = isset($_POST['ci']) ? $_POST['ci'] : '' ;
 $nacionalidad		 = isset($_POST['nacionalidad']) ? $_POST['nacionalidad'] : '' ;
 $err = 0;
 $post = 0;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Is a post! Validate data.
     if ( trim( $name ) == '' ) {
@@ -74,8 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	* Files validations
 	*
 	**/
-
-	if($_FILES['cvFile']['error'] == 4 || $_FILES['photoFile']['error'] == 4){
+	$hasPhoto = true;
+	if($_FILES['cvFile']['error'] == 4){
 		$msg .= '<div class="alert alert-danger">Debe de adjuntar un CV y la imagen de su persona.</div>';
 	    $err = 1;
 	} else {
@@ -83,7 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$msg .= '<div class="alert alert-danger">Ocurrio un error al subir el CV.</div>';
 	    	$err = 1;
 		}
-		if($_FILES['photoFile']['error'] !== UPLOAD_ERR_OK ){
+		
+		if($_FILES['photoFile']['error'] == 4){
+			$hasPhoto = false;
+		}
+		if($hasPhoto && $_FILES['photoFile']['error'] !== UPLOAD_ERR_OK ){
 			$msg .= '<div class="alert alert-danger">Ocurrio un error al subir la imagen de su persona.</div>';
 		    $err = 1;
 		}
@@ -93,11 +98,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$msg .= '<div class="alert alert-danger">Solo puede subir archivos pdf, imagenes o documentos de word al CV.</div>';
 	    		$err = 1;
 			}
-			$ext = strtolower(substr(strrchr($_FILES["photoFile"]["name"], "."), 1));
-			if(!check_doc_mime($_FILES["photoFile"]["tmp_name"], $ext) && !check_image_type($_FILES["photoFile"]["tmp_name"])){
-				$msg .= '<div class="alert alert-danger">Solo puede subir archivos pdf, imagenes o documentos de word a la imagen de su persona.</div>';
-	    		$err = 1;
+			if($hasPhoto){
+				$ext = strtolower(substr(strrchr($_FILES["photoFile"]["name"], "."), 1));
+				if(!check_doc_mime($_FILES["photoFile"]["tmp_name"], $ext) && !check_image_type($_FILES["photoFile"]["tmp_name"])){
+					$msg .= '<div class="alert alert-danger">Solo puede subir archivos pdf, imagenes o documentos de word a la imagen de su persona.</div>';
+		    		$err = 1;
+				}	
 			}
+			
 		}			
 	}
 	if($err == 0){
@@ -128,9 +136,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$message->attach(
 			Swift_Attachment::fromPath($_FILES["cvFile"]["tmp_name"])->setFilename($_FILES["cvFile"]["name"])
 		);
-		$message->attach(
-			Swift_Attachment::fromPath($_FILES["photoFile"]["tmp_name"])->setFilename($_FILES["photoFile"]["name"])
-		);  
+		if($hasPhoto){
+			$message->attach(
+				Swift_Attachment::fromPath($_FILES["photoFile"]["tmp_name"])->setFilename($_FILES["photoFile"]["name"])
+			);	
+		}
 		$transport = Swift_MailTransport::newInstance();
 		$mailer = Swift_Mailer::newInstance($transport);
 		$result = $mailer->send($message);
