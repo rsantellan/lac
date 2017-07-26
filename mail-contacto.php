@@ -17,7 +17,9 @@
        <tr>
         	<td style="font-size:12px; padding:5px 0 5px 0; font-family:Lucida Grande, Lucida Sans Unicode, sans-serif; color:#353535; text-align:left">Ud puede contactarse con <span style="color:#a12457"><?php echo $name;?></span> via email a <span style="color:#a12457"><?php echo $email;?><?php if(trim($telefono) != ''): ?></span> o via telefónica a <span style="color:#a12457"><?php echo $telefono;?></span><?php endif;?></td>
         </tr>
-
+        <tr>
+            <td style="font-size:12px; padding:5px 0 5px 0; font-family:Lucida Grande, Lucida Sans Unicode, sans-serif; color:#353535; fext-align:left">La persona <span style="color:#a12457"><?php if($newsletter): ?>QUIERE <?php else: ?>NO quiere <?php endif;?></span> recibir newsletter</td>
+        </tr>
     </table>
 </body>
 </html>

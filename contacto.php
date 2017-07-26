@@ -69,6 +69,9 @@
 								<div class="col-md-12">
 									<textarea name="comments" id="comments" cols="30" rows="10" placeholder="Mensaje"></textarea>
 								</div>
+								<div class="col-md-6">
+									<input type="checkbox" name="newsletter" id="newsletter" value="1"><span>Suscribite a nuestro Newsletter</span>
+								</div>
 								<button id="submit" type="submit">ENVIAR MENSAJE</button>
                                 <img src="images/ajax-loader.gif" class="loader" alt="" />
 							</form>

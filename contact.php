@@ -14,7 +14,9 @@ if ( !defined( "PHP_EOL" ) ) define( "PHP_EOL", "\r\n" );
 $name		 = $_POST['name'];
 $email		 = $_POST['email'];
 $telefono       = $_POST['telefono'];
-$comments	 = $_POST['comments'];
+$comments  = $_POST['comments'];
+$newsletter	 = isset($_POST['newsletter'])? true : false;
+
 $err = 0;
 if ( trim( $name ) == '' ) {
     $msg .=  '<div class="alert alert-danger">Debe completar el campo "NOMBRE".</div>';  
@@ -40,8 +42,8 @@ if($err == 1){
 if ( get_magic_quotes_gpc() ) {
     $comments = stripslashes( $comments );
 }
-$from = 'laura@lauranozar.com';
-$address = "laura@lauranozar.com";
+$from = 'rsantellan@gmail.com';
+$address = "rsantellan@gmail.com";
 $e_subject = 'Contacto vía Sitio web';
 ob_start();
 include ('mail-contacto.php');
