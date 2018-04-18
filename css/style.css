@@ -172,6 +172,9 @@ section {
 .gap.no-bottom {
   padding-bottom: 0px;
 }
+.container-cv{
+  margin-bottom: 40px;
+}
 .remove-ext-btom {
   float: left;
   width: 100%;
@@ -477,8 +480,8 @@ header {
   width: 100%;
 }
 .topbar {
-  background: #141414 none repeat scroll 0 0;
-  color: #fff;
+  background: #cbcbcb none repeat scroll 0 0;
+  color: #000;
   float: left;
   font: 12px "arimo";
   padding: 12px 0;
@@ -522,19 +525,20 @@ header {
   margin-right: 10px;
 }
 .topbar-contact li a{
-  color: #FFFFFF;
+  color: #000;
 }
 .topbar-contact li span {
-  color: #fff;
+  color: #000;
 }
 .lab-timing span ins {
-  color: #fff;
+  color: #000;
 }
 .lab-timing span i {
   margin-right: 10px;
 }
 .logo {
   float: left;
+  width: 15%;
 }
   .logo img{
     width: 70%;
@@ -573,9 +577,10 @@ width: calc(100% + 136px);
 .main-menu {
   color: #45403d;
   float: right;
-  font: bold 12px/107px "Montserrat";
+  font: bold 13px/107px "Montserrat";
   text-transform: uppercase;
   letter-spacing:0.3px;
+  /*width: 85%;*/
 }
 .main-menu > ul,
 .main-menu > div > ul {
@@ -585,7 +590,7 @@ width: calc(100% + 136px);
 .main-menu > ul > li,
 .main-menu > div > ul > li {
   float: left;
-  margin-left: 45px;
+  margin-left: 22px;
   position:relative;
 }
 .main-menu ul li a,
@@ -762,6 +767,12 @@ width: calc(100% + 136px);
   width: 100%;
   text-align: center;
 }
+  .lab-departs-pdf{
+    text-align: right;
+  }
+  .lab-departs-php{
+    text-align: left;
+  }
 .heading {
   float: left;
   text-align: center;
@@ -771,11 +782,12 @@ width: calc(100% + 136px);
   float: left;
   font: 13px/26px "Montserrat";
   letter-spacing: 0.3px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   width: 100%;
   padding-bottom: 6px;
 }
-.heading h4 {
+.heading h4,
+.heading h1 {
   color: #333;
   float: left;
   font: bold 30px "Montserrat";
@@ -788,7 +800,8 @@ width: calc(100% + 136px);
   text-decoration: none;
   text-transform: uppercase;
 }
-.heading h4 span {  
+.heading h4 span,
+.heading h1 span {  
     width: 100%;
 }
 .heading > i {
@@ -845,8 +858,14 @@ width: calc(100% + 136px);
 .depart-meta {
     float: left;
     margin-bottom: 56px;
-    margin-right: 15px;
-    width: 219px;
+    /*margin-right: 15px;*/
+    width: 20%;
+}
+.depart-meta-home {
+    float: left;
+    margin-bottom: 56px;
+    margin-right: 0.6%;
+    width: 16%;
 }
 .depart-avatar {
   float: left;
@@ -854,19 +873,39 @@ width: calc(100% + 136px);
   position: relative;
   overflow: hidden;
 }
+
 .depart-avatar > img {
-    float: left;
+    /*float: left;*/
     width: 100%;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
 }
-.depart-detail h2 {
+.depart-avatar-iconos > img{
+  width: 30%;
+}
+.depart-meta-home .depart-detail h2{
   color: #444;
   float: left;
-  font: 15px/30px "Montserrat";
+  font: 11px/18px "Montserrat";
   letter-spacing: 0.1px;
   padding-top: 20px;
   width: 100%;
   text-transform: uppercase;
 }
+.depart-detail h2 {
+  color: #444;
+  float: left;
+  font: 13px/22px "Montserrat";
+  letter-spacing: 0.1px;
+  padding-top: 20px;
+  width: 100%;
+  text-transform: uppercase;
+}
+.depart-detail h2:hover{
+  color: #444 !important;
+}
+
 .depart-detail h2 a {
   color: inherit;
 }
@@ -953,12 +992,12 @@ width: calc(100% + 136px);
     transition: all 0.4s linear 0s; 
 }
 /*--- funfacts section ---*/
-.counter,
+.counter-static,
 .count i {
   font: 600 30px "Poppins";
   letter-spacing: 0.3px;
 }
-span.counter{
+span.counter-static{
   color: #a12457;
 
 }
@@ -990,6 +1029,7 @@ span.counter-top{
 }
 .counter-meta img{
   width: 40%;
+  margin-bottom: 10px;
 }
 .counter-meta > h2 {
   color: #444;
@@ -1275,7 +1315,7 @@ button.main-btn:hover{
   border-radius: 3px;
   float: left;
   margin-left: 10px;
-  padding: 25px 10px;
+  padding: 25px 10px 35px 10px;
   text-align: center;
   width: calc(100% - 20px);
 }
@@ -1290,6 +1330,22 @@ button.main-btn:hover{
 .team-info h2 a {
   color: inherit;
 }
+.team-info a{
+  display: block;
+  color: #A4245A;
+  font-weight: 400;
+  height: 20px;
+  font: 12px "Montserrat";
+  }
+  .team-info a:hover,
+  .team-info a:active,
+  .team-info a:focus{
+    color: #444;
+  }
+  .team-info i{
+    font-size: 0.7em;
+    margin-right: 5px;
+  }
 .team-info.over-top {
   margin-top: -50px;
   position: relative;
@@ -1300,7 +1356,7 @@ button.main-btn:hover{
   font: 12px "Montserrat";
   letter-spacing: 0.3px;
   margin-top: 5px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   width: 100%;
 }
 /*--- Carousel nav button style ---*/
@@ -1436,12 +1492,12 @@ button.main-btn:hover{
   width: initial;
 }
 /*--- sponsors carosel seciton ---*/
-.sponsors {
+.sponsors-static {
   float: left;
   width: 100%;
   padding:60px 0 100px;
 }
-.sponsors > li {
+.sponsors-static > li {
   width: 12.5%;
   float: left;
   display: block;
@@ -1701,13 +1757,21 @@ button.main-btn:hover{
 }
 .news-detail {
   overflow: hidden;
-  padding-left: 30px;
+  padding: 0 0 25px 0;
 }
 .news-detail > a {
   font: 12px/22px "Montserrat";
   letter-spacing: 0.3px;
   text-transform: capitalize;
   position: relative;
+}
+.news-detail span.prueba {
+  font: 15px/17px "Montserrat";
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  position: relative;
+  /*font-weight: 600;*/
+  color: #444;
 }
 .news-detail > a::before {
   content: ",";
@@ -1720,13 +1784,13 @@ button.main-btn:hover{
 }
 .news-detail > h1,
 .news-detail > h2 {
-  color: #444;
+  color: #a12457;
   float: left;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   letter-spacing: 0.3px;
   line-height: 22px;
-  padding-bottom: 17px;
+  /*padding-bottom: 8px;*/
   padding-top: 4px;
   width: 100%;
 }
@@ -1841,21 +1905,21 @@ footer {
 .footer_izq{
   background: #272727;
   overflow: hidden;
-  min-height:430px;
+  min-height:483px;
 }
 .footer_centro{
   background: #030303;
   overflow: hidden;
-  min-height:430px;
+  min-height:483px;
 }
 .footer_der{
   background: #191919;
   overflow: hidden;
-  min-height:430px;
+  min-height:483px;
 }
 .footer-widget {
     float: left;
-    padding: 70px 51px;
+    padding: 55px 40px;
     width: 100%;
 }
 .widget-title {
@@ -1866,10 +1930,11 @@ footer {
 }
 .widget-title > h4 {
   color: #333;
-  font-size: 22px;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: bold;
   letter-spacing: 0.3px;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 .widget-title > ins {
     float: left;
@@ -2123,6 +2188,7 @@ ul.lists{
     font-style: italic;
     color: #4b4b4b;
     padding-bottom: 8px;
+    line-height: 24px;
   }
   ul.lists li a:hover{
     text-decoration:underline;
@@ -2621,12 +2687,14 @@ p.w-margin{
   width: 100%;
   z-index: 1;
 }
-.top-heading h3 {
+.top-heading h3,
+.top-heading h1 {
   color: inherit;
   font: bold 40px "Montserrat";
   text-transform: capitalize;
 }
-.top-heading h3 b {
+.top-heading h3 b,
+.top-heading h1 b {
   font: 300 40px "Poppins";
 }
 .top-heading > span {
@@ -2841,10 +2909,11 @@ p.w-margin{
 }
 .post-avatar {
   float: left;
-  padding: 0 25px;
+  padding: 25px;
   width: 100%;
   position: relative;
   z-index: 2;
+  background: #FAFAFE;
 }
 .post-avatar > img {
   float: left;
@@ -2852,16 +2921,24 @@ p.w-margin{
 }
 .blog-single-meta .news-meta {
   background: #fafafc;
-  padding: 147px 100px 35px 70px;
+  padding: 147px 100px 35px 0;
 }
 .blog-single-meta > p {
-  margin-top: 40px;
+  margin-top: 20px;
   float: left;
   width: 100%;
   color: #666666;
   font-size: 15px;
   line-height: 30px;
 }
+.blog-single-meta > p a:hover{
+  color: #A4245A;
+  text-decoration: underline;
+}
+  .blog-single-meta > p a:focus,
+  .blog-single-meta > p a:visited{
+    color: #A4245A;
+  }
 .heading4 {
   float: left;
   width: 100%;
@@ -2874,7 +2951,7 @@ p.w-margin{
 .heading4 > h4 {
   color: #333;
   float: left;
-  font: 500 22px "Poppins";
+  font: 600 22px "Poppins";
   letter-spacing: 0.3px;
   text-transform: capitalize;
   width: 100%;
@@ -3055,7 +3132,7 @@ blockquote {
 .side-widget {
   background: #fbfbfb none repeat scroll 0 0;
   float: left;
-  padding: 60px 50px;
+  padding: 29px 50px 60px 50px;
   width: 100%;
   margin-bottom: 10px;
 }
@@ -3081,6 +3158,9 @@ blockquote {
 .widget.lab-links ul li a {
   color: inherit;
 }
+.widget.categories ul li a.current{
+  color: #a12457;
+  }
 .widget.categories ul li span {
   float: right;
   position: relative;
@@ -3200,6 +3280,7 @@ blockquote {
   font: 15px/26px "Poppins";
   letter-spacing: 0.3px;
   text-transform: capitalize;
+  float: left;
 }
 .dr-socials {
   float: right;
@@ -3265,6 +3346,10 @@ blockquote {
   text-decoration: none;
   position: relative;
 }
+  .address-meta a:hover,.address-meta a:focus,.address-meta a:visited{
+    color: #A4245A;
+    text-decoration: underline;
+    }
 .dr-address > a {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -3439,7 +3524,7 @@ blockquote {
   font: 11px "Montserrat";
   letter-spacing: 0.3px;
   padding: 20px 34px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   width: 100%;
 }
 .contact-form form input.disableInputField {
@@ -3458,7 +3543,18 @@ blockquote {
     text-transform: capitalize;
     background: none !important;
 }
-
+.contact-form span.susc-news{
+  color: #858585;
+  float: left;
+  padding-top: 3px;
+  font: 11px "Montserrat";
+  letter-spacing: 0.3px;
+}
+input#newsletter{
+  float: left;
+  width: auto;
+  margin-right: 5px;
+}
 label.adj-trab{
   width: 30% !important;
   float: left !important;
@@ -3604,11 +3700,21 @@ p.resultados span{
   float: left;
   width: 100%;
 }
+.about-us-meta > p a:hover{
+  text-decoration:underline;
+  color: #a12457; 
+}
+.about-us-meta > p a:focus{
+  text-decoration:underline;
+  color: #3b3b3b; 
+}
+
 .about-us-meta blockquote {
   border: medium none;
   color: #a29f9f;
   display: inline-block;
   font: italic 15px "Montserrat";
+  line-height: 23px;
   margin: 8px auto 35px 50%;
   max-width: 85%;
   padding: 0;
@@ -3620,6 +3726,7 @@ p.resultados span{
   -o-transform: translate(-50%);
   transform: translate(-50%);
 }
+
 .about-us-meta blockquote::before {
   content: "\f10d";
   font-family: fontawesome;
@@ -3635,7 +3742,7 @@ p.resultados span{
     padding-left: 10px;
 }
 .style2 .funfact .counter-meta > h2,
-.style2 .funfact .count .counter {
+.style2 .funfact .count .counter-static {
   color: #fff;
 }
 .counter-meta > h2 a{color:inherit;}
@@ -3844,6 +3951,7 @@ p.resultados span{
 	float:left;
 	width:100%;
 	position:relative;	
+
 }
 .dropdown > li > ul > li.active > a::before {
     content: "\f0d7";
@@ -3883,6 +3991,7 @@ p.resultados span{
     list-style: outside none none;
     width: 100%;
 	padding:0 60px;
+    overflow-y:scroll; 
 }
 .dropdown > li > a {
     color: #333;
@@ -3979,7 +4088,7 @@ p.resultados span{
 .blackish .counter-meta > h2{
 	color:#fff;
 }
-.low-opacity .counter{
+.low-opacity .counter-static{
 	color:#fff;
 }
 .blog-single-meta .avatar{
@@ -4261,6 +4370,13 @@ img.loader{display:none;}
   color: #FFF;
   padding: 5px;
 }
+  .manual-pruebas-esp span{
+  background: #cbcbcb;
+  display: block;
+  color: #a12457;
+  padding: 5px;
+  }
+
 .manual-pruebas ul{
   margin-top: 15px;
 }
@@ -4281,8 +4397,18 @@ img.loader{display:none;}
 .manual-pruebas p{
   margin: 15px 0;
 }
+.manual-pruebas span.equipos{
+  color:#a12457;
+  background: none !important;
+  font-weight: 400;
+  padding: 0 !important;
+  font-style: italic;
+  margin-bottom: 5px;
+}
 .manual-pruebas a{
   font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
   }
   .manual-pruebas a:hover{
     color: #A4245A;
@@ -4301,3 +4427,20 @@ p.pie-version{
   text-align: right;
   margin-bottom: 15px;
 }
+.title-pruebas{
+    font: 13px/26px "Montserrat";
+    letter-spacing: 0.3px;
+    /* text-transform: capitalize; */
+    color: #a12457;
+    padding-bottom: 6px;
+    }
+    .title-pruebas-right{
+      text-align: right;
+    }
+.lab-departs-pruebas-r{
+  text-align: right;
+  }
+.lab-departs-pruebas-l{
+  text-align: left;
+  }
+

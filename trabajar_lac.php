@@ -47,113 +47,122 @@ $ci		 = isset($_POST['ci']) ? $_POST['ci'] : '' ;
 $nacionalidad		 = isset($_POST['nacionalidad']) ? $_POST['nacionalidad'] : '' ;
 $err = 0;
 $post = 0;
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Is a post! Validate data.
-    if ( trim( $name ) == '' ) {
-	    $msg .=  '<div class="alert alert-danger">Debe completar el campo "Nombre Completo".</div>';  
-	    $err = 1;
-	}
-	if ( trim( $email ) == '' ) {
-	    $msg .= '<div class="alert alert-danger">Debe completar el campo "Email"</div>';
-	    $err = 1;
-	}
-	if ( trim( $ci ) == '' ) {
-	    $msg .= '<div class="alert alert-danger">Debe completar el campo "Cédula de Identidad"</div>';
-	    $err = 1;
-	}
-	if ( trim( $born ) == '' ) {
-	    $msg .= '<div class="alert alert-danger">Debe completar el campo "Fecha de Nacimiento"</div>';
-	    $err = 1;
-	}
-	if ( !isEmail( $email ) ) {
-	    $msg .= '<div class="alert alert-danger">Atención! El email ingresado no es válido.</div>';
-	    $err = 1;
-	}
-	/**
-	*
-	* Files validations
-	*
-	**/
-	$hasPhoto = true;
-	if($_FILES['cvFile']['error'] == 4){
-		$msg .= '<div class="alert alert-danger">Debe de adjuntar un CV y la imagen de su persona.</div>';
-	    $err = 1;
-	} else {
-		if($_FILES['cvFile']['error'] !== UPLOAD_ERR_OK ){
-			$msg .= '<div class="alert alert-danger">Ocurrio un error al subir el CV.</div>';
-	    	$err = 1;
-		}
-		
-		if($_FILES['photoFile']['error'] == 4){
-			$hasPhoto = false;
-		}
-		if($hasPhoto && $_FILES['photoFile']['error'] !== UPLOAD_ERR_OK ){
-			$msg .= '<div class="alert alert-danger">Ocurrio un error al subir la imagen de su persona.</div>';
-		    $err = 1;
-		}
-		if($err == 0){
-			$ext = strtolower(substr(strrchr($_FILES["cvFile"]["name"], "."), 1));
-			if(!check_doc_mime($_FILES["cvFile"]["tmp_name"], $ext) && !check_image_type($_FILES["cvFile"]["tmp_name"])){
-				$msg .= '<div class="alert alert-danger">Solo puede subir archivos pdf, imagenes o documentos de word al CV.</div>';
-	    		$err = 1;
-			}
-			if($hasPhoto){
-				$ext = strtolower(substr(strrchr($_FILES["photoFile"]["name"], "."), 1));
-				if(!check_doc_mime($_FILES["photoFile"]["tmp_name"], $ext) && !check_image_type($_FILES["photoFile"]["tmp_name"])){
-					$msg .= '<div class="alert alert-danger">Solo puede subir archivos pdf, imagenes o documentos de word a la imagen de su persona.</div>';
-		    		$err = 1;
-				}	
-			}
-			
-		}			
-	}
-	if($err == 0){
-		require_once __DIR__.'/vendor/autoload.php';
-		ob_start();
-		include ('mail-trabaja-con-nosotros.php');
-		$messageBody = ob_get_clean();
-		$from = 'laura@lauranozar.com';
-		$address = "laura@lauranozar.com";
-		$e_subject = 'Contacto vía Sitio web. Trabaja con nosotros';
-		// Create the message
-		$message = Swift_Message::newInstance()
+    $response=$_POST["g-recaptcha-response"];
+    $secret="6LecyDIUAAAAAOLTyOiM02CxRmgd3jMIp9nJNFdD";
+    $verify=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}");
+    $captcha_success=json_decode($verify);
+    if ($captcha_success->success==false) {
+      //This user was not verified by recaptcha.
+      $msg .= '<div class="alert alert-danger">Captha incorrecto.</div>';
+      $err = 1;
+    }else if ($captcha_success->success==true) {
+        // Is a post! Validate data.
+        if ( trim( $name ) == '' ) {
+          $msg .=  '<div class="alert alert-danger">Debe completar el campo "Nombre Completo".</div>';  
+          $err = 1;
+        }
+        if ( trim( $email ) == '' ) {
+            $msg .= '<div class="alert alert-danger">Debe completar el campo "Email"</div>';
+            $err = 1;
+        }
+        if ( trim( $ci ) == '' ) {
+            $msg .= '<div class="alert alert-danger">Debe completar el campo "Cédula de Identidad"</div>';
+            $err = 1;
+        }
+        if ( trim( $born ) == '' ) {
+            $msg .= '<div class="alert alert-danger">Debe completar el campo "Fecha de Nacimiento"</div>';
+            $err = 1;
+        }
+        if ( !isEmail( $email ) ) {
+            $msg .= '<div class="alert alert-danger">Atención! El email ingresado no es válido.</div>';
+            $err = 1;
+        }
+        /**
+        *
+        * Files validations
+        *
+        **/
+        $hasPhoto = true;
+        if($_FILES['cvFile']['error'] == 4){
+          $msg .= '<div class="alert alert-danger">Debe de adjuntar un CV de su persona.</div>';
+            $err = 1;
+        } else {
+          if($_FILES['cvFile']['error'] !== UPLOAD_ERR_OK ){
+            $msg .= '<div class="alert alert-danger">Ocurrio un error al subir el CV.</div>';
+              $err = 1;
+          }
+          if($_FILES['photoFile']['error'] == 4){
+            $hasPhoto = false;
+          }
+          if($hasPhoto && $_FILES['photoFile']['error'] !== UPLOAD_ERR_OK ){
+            $msg .= '<div class="alert alert-danger">Ocurrio un error al subir la imagen de su persona.</div>';
+              $err = 1;
+          }
+          if($err == 0){
+            $ext = strtolower(substr(strrchr($_FILES["cvFile"]["name"], "."), 1));
+            if(!check_doc_mime($_FILES["cvFile"]["tmp_name"], $ext) && !check_image_type($_FILES["cvFile"]["tmp_name"])){
+              $msg .= '<div class="alert alert-danger">Solo puede subir archivos pdf, imagenes o documentos de word al CV.</div>';
+                $err = 1;
+            }
+            if($hasPhoto){
+              $ext = strtolower(substr(strrchr($_FILES["photoFile"]["name"], "."), 1));
+              if(!check_doc_mime($_FILES["photoFile"]["tmp_name"], $ext) && !check_image_type($_FILES["photoFile"]["tmp_name"])){
+                $msg .= '<div class="alert alert-danger">Solo puede subir archivos pdf, imagenes o documentos de word a la imagen de su persona.</div>';
+                  $err = 1;
+              }	
+            }
+          }			
+        }
+        if($err == 0){
+          require_once __DIR__.'/vendor/autoload.php';
+          ob_start();
+          include ('mail-trabaja-con-nosotros.php');
+          $messageBody = ob_get_clean();
+          $from = 'dpersonas@lac.com.uy';
+          $address = "dpersonas@lac.com.uy";
+          $e_subject = 'Contacto vía Sitio web. Trabaja con nosotros';
+          // Create the message
+          $message = Swift_Message::newInstance()
 
-		  // Give the message a subject
-		  ->setSubject($e_subject)
+            // Give the message a subject
+            ->setSubject($e_subject)
 
-		  // Set the From address with an associative array
-		  ->setFrom($from)
+            // Set the From address with an associative array
+            ->setFrom($from)
 
-		  // Set the To addresses with an associative array
-		  ->setTo(array($address))
+            // Set the To addresses with an associative array
+            ->setTo(array($address))
 
-		  // Give it a body
-		  ->setBody($messageBody, 'text/html');
+            // Give it a body
+            ->setBody($messageBody, 'text/html');
 
-		  // And optionally an alternative body
-		  //->addPart('<q>Here is the message itself</q>', 'text/html');
-		$message->attach(
-			Swift_Attachment::fromPath($_FILES["cvFile"]["tmp_name"])->setFilename($_FILES["cvFile"]["name"])
-		);
-		if($hasPhoto){
-			$message->attach(
-				Swift_Attachment::fromPath($_FILES["photoFile"]["tmp_name"])->setFilename($_FILES["photoFile"]["name"])
-			);	
-		}
-		$transport = Swift_MailTransport::newInstance();
-		$mailer = Swift_Mailer::newInstance($transport);
-		$result = $mailer->send($message);
-		@unlink($_FILES["cvFile"]["tmp_name"]);
-		@unlink($_FILES["photoFile"]["tmp_name"]);
-		if($result > 0){
-			header("Location: trabajar_lac_correcto.php");
-			die();
-		}else{
-			$msg .= '<div class="alert alert-danger">A ocurrido un error. Contactate con el administrador del sitio.</div>';
-    		$err = 1;
-		}
-	}
+            // And optionally an alternative body
+            //->addPart('<q>Here is the message itself</q>', 'text/html');
+          $message->attach(
+            Swift_Attachment::fromPath($_FILES["cvFile"]["tmp_name"])->setFilename($_FILES["cvFile"]["name"])
+          );
+          if($hasPhoto){
+            $message->attach(
+              Swift_Attachment::fromPath($_FILES["photoFile"]["tmp_name"])->setFilename($_FILES["photoFile"]["name"])
+            );	
+          }
+            
+          $transport = Swift_MailTransport::newInstance();
+          $mailer = Swift_Mailer::newInstance($transport);
+          $result = $mailer->send($message);
+          @unlink($_FILES["cvFile"]["tmp_name"]);
+          @unlink($_FILES["photoFile"]["tmp_name"]);
+          if($result > 0){
+            header("Location: trabajar_lac_correcto.php");
+            die();
+          }else{
+            $msg .= '<div class="alert alert-danger">A ocurrido un error. Contactate con el administrador del sitio.</div>';
+              $err = 1;
+          }
+        }      
+    }
+
 	$post = 1;
 }
 ?>
@@ -163,6 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php $pagina = 'contacto';?>
 <?php include('_head.php');?>
 <body>
+<?php include_once("analyticstracking.php") ?>
 <div class="theme-layout">
 
 <?php include('_header.php');?>
@@ -173,10 +183,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<div class="row">
 					<div class="col-md-12">
 						<div class="page-top overlap black-layer">
-							<img src="images/resources/trabaja-top.jpg" alt="">
+							<img src="images/resources/trabaja-top.jpg" alt="Cabezal Trabjar en LAC">
 							<div class="top-heading">
 								<h3>trabaja con <b>nosotros</b></h3>
-								<span>VANGUARDIA AL SERVICIO DE LA SALUD</span>
+								<span>Tecnología e innovación al servicio de la salud</span>
 							</div>
 						</div>
 					</div>
@@ -192,8 +202,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					<div class="col-md-4">
 						<div class="lab-contact">
 							<div class="heading4">
-								<h4>Quiere trabajar con <ins>nosotros?</ins></h4>
-								<p>complete el formulario de y con guardaremos su cv en nuestra base de datos.</p>
+								<h4 style="text-transform:none;">¿Quiere trabajar con <ins style="text-transform:none;">nosotros?</ins></h4>
+								<p>Complete el formulario y guardaremos su cv en nuestra base de datos.</p>
 							</div>
 							<ul class="lab-contact-detail">
 								<li>
@@ -202,11 +212,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								</li>
 								<li>
 									<i class="fa fa-envelope"></i>
-									<span><b>EMAIL</b><ins><a href="info@lac.com.uy">info@lac.com.uy</a></ins></span>										
+									<span><b>EMAIL</b><ins><a href="mailto:acliente@lac.com.uy">acliente@lac.com.uy</a></ins></span>										
 								</li>
 								<li>
 									<i class="fa fa-home"></i>
-									<span><b>dirección</b><ins>Av. Italia 2595</ins></span>										
+									<span><b>dirección</b><ins>Av. Italia 2595, Montevideo, Uruguay</ins></span>										
 								</li>
 							</ul>
 						</div>
@@ -228,7 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 									<input type="text" name="nacionalidad" placeholder="Nacionalidad (opcional)" id="nacionalidad" value="<?php echo $nacionalidad;?>">
 								</div>
 								<div class="col-md-6">
-									<label class="label-born">Fecha de Nacimiento</label>
+									<label class="label-born">Fecha de Nacimiento*</label>
 									<input type="date" name="born" placeholder="Fecha de Nacimiento" id="born" class="input-born"value="<?php echo $born;?>">
 								</div>
 								<div class="col-md-6">
@@ -241,15 +251,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 									<input type="text" name="telefono" placeholder="Teléfono (opcional)" id="telefono" value="<?php echo $telefono;?>">
 								</div>
 								<div class="col-md-6">
-									<label class="adj-trab">Adjuntar CV</label>
+									<label class="adj-trab">Adjuntar CV*</label>
 									<input id="uploadBtn" type="file" class="upload" name="cvFile" />								
 								</div>
 								<div class="col-md-6">
 									<label class="adj-trab">Adjuntar Foto</label>
 									<input id="uploadBtn" type="file" class="upload" name="photoFile" />		
 								</div>
-								<button id="submit" type="submit">ENVIAR CV</button>
-                                <img src="images/ajax-loader.gif" class="loader" alt="" />
+                <div class="col-md-12">
+                  <div class="g-recaptcha" data-sitekey="6LecyDIUAAAAAIHPYUa_T79rNXSadOJOF9c0U3bO"></div>
+                </div>
+                <div class="col-md-12">
+                  <button id="submit" type="submit">ENVIAR CV</button>
+                </div>
+                                <img src="images/ajax-loader.gif" class="loader" alt="loader" />
+                                
 							</form>
 						</div>
 					</div>
@@ -264,15 +280,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<ul class="sponsors">
-							<li><a href="http://www.mayomedicallaboratories.com/index.html" title="Clínica Mayo" target="blank"><img src="images/resources/sponsor-1.png" alt=""></a></li>
-							<li><a href="http://www.organismouruguayodeacreditacion.org/Pagina_Principal.htm" title="OUA (15189)" target="blank"><img src="images/resources/sponsor-2.png" alt=""></a></li>
-							<li><a href="http://aladil.org" title="Aladil" target="blank"><img src="images/resources/sponsor-3.png" alt=""></a></li>
-							<li><a href="http://www.mayomedicallaboratories.com/index.html" title="Clínica Mayo" target="blank"><img src="images/resources/sponsor-1.png" alt=""></a></li>
-							<li><a href="http://www.organismouruguayodeacreditacion.org/Pagina_Principal.htm" title="OUA (15189)" target="blank"><img src="images/resources/sponsor-2.png" alt=""></a></li>
-							<li><a href="http://aladil.org" title="Aladil" target="blank"><img src="images/resources/sponsor-3.png" alt=""></a></li>
-
-						</ul>
+						<?php include('_sponsors.php');?>
 					</div>
 				</div>
 			</div>
@@ -283,6 +291,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </div>
 
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 837265055;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/837265055/?guid=ON&amp;script=0"/>
+</div>
+</noscript>
 		
 
 </body>	

@@ -11,9 +11,9 @@ class DbConnector
 	public function __construct()
 	{
 		$connectionParams = array(
-		    'dbname' => 'laura_lac',
-		    'user' => 'root',
-		    'password' => 'root',
+		    'dbname' => 's179732_sitio',
+		    'user' => 's179732_sitio',
+		    'password' => '0[kdqMSvE,sV',
 		    'host' => 'localhost',
 		    'port' => 3306,
 		    'charset' => 'utf8',

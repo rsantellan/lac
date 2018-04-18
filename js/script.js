@@ -288,9 +288,10 @@ jQuery(document).ready(function ($) {
 		//===== Ajax Contact Form =====//
     $('#contactform').submit(function () {
         var action = $(this).attr('action');
-        var msg = $(this).find('.msg-box');console.log(msg);
+        var msg = $(this).find('.msg-box');//console.log(msg);
         $(msg).hide();
-        var data = $(this).serialize();
+        var data = $(this).serialize() + "&g-recaptcha-response=" + grecaptcha.getResponse($('#contact-form').attr('data-widget-id'));
+        console.log(data);
         $.ajax({
             type: 'POST',
             url: action,
@@ -305,7 +306,7 @@ jQuery(document).ready(function ($) {
                 $(msg).empty();
                 $(msg).html(data);
                 $(msg).slideDown('slow');
-                
+                grecaptcha.reset();
             }
         });
         return false;
@@ -315,7 +316,7 @@ jQuery(document).ready(function ($) {
         var action = $(this).attr('action');
         var msg = $(this).find('.msg-box');
         $(msg).hide();
-        var data = $(this).serialize();
+        var data = $(this).serialize() + "&g-recaptcha-response=" + grecaptcha.getResponse($('#newsletter-form').attr('data-widget-id'));;
         $.ajax({
             type: 'POST',
             url: action,
@@ -333,10 +334,18 @@ jQuery(document).ready(function ($) {
                 window.setTimeout(function() {
                 	$(msg).fadeOut('slow');
                 }, 3000);
+                grecaptcha.reset();
                 
             }
         });
         return false;
     });
+    $('div.manual-pruebas li:contains("Resultado (D")').remove()
 });
 
+var CaptchaCallback = function() {
+  $('.g-recaptcha').each(function(index, el) {
+    var widgetId = grecaptcha.render(el, {'sitekey' : '6LecyDIUAAAAAIHPYUa_T79rNXSadOJOF9c0U3bO'});
+    $(this).attr('data-widget-id', widgetId);
+  });
+};

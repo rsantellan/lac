@@ -20,7 +20,7 @@ if(isset($_GET['term'])){
 	if(count($quantityOnDb) > 0){
 		$dbQuantity = (int) $quantityOnDb[0]['quantity'];
 	}
-	$pageQuantity = (int) ($dbQuantity / $quantity);
+	$pageQuantity = ceil((int) ($dbQuantity / $quantity));
 	$data = $dbConnector->runSqlQuery(sprintf('select id, title, body from pruebas order by title asc limit %s offset %s', $quantity, $offset));
 }
 $dbConnector->closeAll();
@@ -31,6 +31,7 @@ $dbConnector->closeAll();
 <?php $pagina = 'instituciones_medicos';?>
 <?php include('_head.php');?>
 <body>
+<?php include_once("analyticstracking.php") ?>
 <div class="theme-layout">
 <?php include('_header.php');?>
 	
@@ -40,10 +41,10 @@ $dbConnector->closeAll();
 				<div class="row">
 					<div class="col-md-12">
 						<div class="page-top overlap black-layer">
-							<img src="images/resources/manual-pruebas.jpg" alt="">
+							<img src="images/resources/manual-pruebas.jpg" alt="Cabezal Manual de pruebas">
 							<div class="top-heading">
 								<h3>manual<b> de pruebas</b></h3>
-								<span>VANGUARDIA AL SERVICIO DE LA SALUD</span>
+								<span>Tecnología e innovación al servicio de la salud</span>
 							</div>
 						</div>
 					</div>
@@ -91,7 +92,7 @@ $dbConnector->closeAll();
 				</div>
 			</div>
 		</div>
-	</section><!-- intro section -->
+	</section> <!--intro section -->
 	<?php
 	$loopcounter = 0;
 	?>
@@ -197,6 +198,21 @@ $dbConnector->closeAll();
     
 </div>
 
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 837265055;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/837265055/?guid=ON&amp;script=0"/>
+</div>
+</noscript>
 
 </body>	
 </html>

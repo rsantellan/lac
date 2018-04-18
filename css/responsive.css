@@ -26,7 +26,18 @@ p{font-size:13px !important;}
     margin-left: 15% !important;
     margin-right:15% !important;
     margin-top: 15px; 
+    text-align: center;
 }
+ .lab-departs-pruebas-r .btn-1,
+ .lab-departs-pruebas-l .btn-1{
+        width: auto;
+        margin-left: 0 !important;
+        margin-right:5% !important;
+        margin-top: 0;
+        }
+    .title-pruebas-right{
+        text-align: left;
+        }
 .select2-selection{
 	width:620px;	
 }
@@ -143,7 +154,7 @@ p{font-size:13px !important;}
 .departs-list {
     width: 50%;
 }
-.depart-meta{width:165px;}
+.depart-meta{width:25%;}
 .depart-detail h5{font-size:12px;}
 .lab-services{padding:10px;}
 .blog-single-meta .news-meta {
@@ -191,38 +202,60 @@ p{font-size:13px !important;}
 
 }
 
-@media (max-width: 1409px){
+/*@media (max-width: 1409px){
     .col-sm-4-docs{width:25% !important;}
-}
+}*/
+
 @media (min-width: 1281px) and (max-width: 1440px){
-    .col-sm-4-docs{width:25% !important}
+    /*.col-sm-4-docs{width:25% !important}*/
     .counter-meta img{width: 50%;}
     .counter-meta > h2 {padding-top: 3px;}
     .count{margin-top: 100px;}
     .count-one{margin-top: 75px;}
+    .depart-meta-home .depart-detail h2{font: 13px/20px "Montserrat";
+    padding-top: 10px;}
     }
 @media (max-width: 1280px){
     .recent-post > p{margin-top:5px;}
-    .footer-widget{padding: 70px 40px;}
+    .footer-widget{padding: 55px 40px 26px 40px;}
     .team-info{width: calc(100% - 12px); margin-left:5px;}
-    .main-menu > ul > li, .main-menu > div > ul > li{margin-left: 25px;}
+    /*.main-menu > ul > li, .main-menu > div > ul > li{margin-left: 25px;}*/
     .counter-meta img{width: 70%;}
-    .count{margin-top: 105px;}
-    .count-one{margin-top: 80px;}
-    }
+    .count{margin-top: 150px;}
+    .count-one{margin-top: 124px;}
+    .lab-departs-pdf{text-align: right;}
+  .lab-departs-php{text-align: left;}
+  /*.logo{width: 19%}
+    }*/
+    .depart-meta-home .depart-detail h2{font: 13px/20px "Montserrat";
+}
+@media (max-width: 1200px){
+     .count{margin-top: 114px;}
+}
+
 @media (max-width: 1024px){
     .counter-meta img{width: 75%;}
     .count{margin-top: 111px;}
     .count-one{margin-top: 87px;}
     .counter-meta > h2{ padding-top: 3px;}
-    .footer_izq{min-height: auto}
-    .footer_centro{min-height: auto}
-    .footer_der{min-height: auto}
-    .team-info{width: calc(100% - 20px); padding: 10px 2px;}
+    .footer_izq{}
+    .footer_centro{padding-bottom: 52px;}
+    .footer_der{min-height: auto; padding-bottom: 29px;}
+    .team-info{width: calc(100% - 20px); padding: 10px 2px 30px 2px;}
     .team-info.over-top {margin-top: -30px;}
     .team-info > span {font-size: 10px;}
-    .main-menu > ul > li, .main-menu > div > ul > li{margin-left: 25px;}
+    .team-info a {font-size: 10px;}
+    .main-menu > ul > li, .main-menu > div > ul > li{margin-left: 20px;}
     .main-menu > ul, .main-menu > div > ul{margin-right: 15px;}
+    .logo{width: 15%;}
+    .social-media ul li{max-width: 30px;}
+    .blog-single-meta p{margin-left: 25px;}
+    .lab-features{margin-left: 25px;}
+    .heading4 p {margin-left: 0;}
+    .depart-meta-home .depart-detail h2{font: 10px/16px "Montserrat";padding-top: 15px;}
+
+    }
+
 
     }
 @media (max-width: 768px){
@@ -237,6 +270,13 @@ p{font-size:13px !important;}
     .team-info{width: calc(100% - 20px);}
     .team-info h2{font-size: 10px;}
     .col-sm-4-docs{width: 33.33333333% !important;}
+    .lab-departs-pdf,.lab-departs-php{text-align: centerx;}
+    .blog-single-meta p{margin-left: 0;}
+    .lab-features{margin-left: 0;}
+    .heading4 p {margin-left: 0;}
+    .news-detail span.prueba{margin-bottom: 15px; display: block;}
+    .landings-form{padding-top: 20px !important;}
+    .dr-socials{margin-right: 0;}
     }
 @media (min-width: 732px){
     .col-sm-4-docs {width: 33.33333333%;float: left;} 
@@ -245,6 +285,7 @@ p{font-size:13px !important;}
 @media (min-width: 736px){
         .col-sm-4-docs {width: 33.33333333%;float: left;}   
         .counter-meta > h2{padding-top: 12px;}
+        
     }
 @media (max-width: 640px){
     .recent-post > p{margin-top:0;}
@@ -261,6 +302,7 @@ p{font-size:13px !important;}
     .count-one{margin-top: 44px;}
     .col-sm-4-docs {width: 50%;float: left;}   
     .team-info{width: calc(100% - 10px) ; margin-left: 5px;}
+    .depart-detail h2{font-size: 11px; line-height: 15px;}
 
     }
 @media (max-width: 568px){
@@ -269,17 +311,21 @@ p{font-size:13px !important;}
     .counter-meta img{width: 100%;}
     .recent-post > p{margin-top:0;}
     .logo-footer{width: 40%;}
-    .team-info{width: calc(100% - 20px);}
+    .team-info{width: calc(100% - 9px);}
     .counter-meta img{width: 80%;}
     .count{margin-top: 82px;}
     .count-one{margin-top: 57px;}
     .col-sm-4-docs {width: 50% !important; overflow: hidden;}
+    .depart-meta-home .depart-detail h2{font: 10px/14px "Montserrat";padding-top: 10px;}
+    .sponsors-static{padding: 10px 0 100px}
+    .heading h1{font: bold 20px "Montserrat"}
     }
 @media (max-width: 533px){
     .team-info{margin-left: 9px;}
     .funfact{width: 45%}
     .funfact-responsive{margin-left: 100px !important;}
     .team-info{width: calc(100% - 18px) !important;}
+    .depart-detail h2{font-size: 10px;}
     }
 @media (max-width: 414px){
         .footer_izq{min-height: auto}
@@ -297,6 +343,8 @@ p{font-size:13px !important;}
         .manual-pruebas table td{
             width: 25%;
         }
+        .gap-landing, .gap-cv{padding: 20px 0 !important}
+
     }
 @media (max-width: 412px){
     .counter-meta img{width: 50%;}
@@ -310,6 +358,18 @@ p{font-size:13px !important;}
     .counter-meta > h2{padding-top: 15px;}
     .count{margin-top: 98px;}
     .count-one{margin-top: 73px;}
+    .gap-landing{padding: 20px 0;}
+ .lab-departs-pruebas-r .btn-1,
+ .lab-departs-pruebas-l .btn-1{
+        width: auto;
+        margin-left: 0 !important;
+        margin-right:5% !important;
+        margin-top: 0;
+        }
+    .title-pruebas-right{
+        text-align: left;
+        }
+        .heading h1{font: bold 20px "Montserrat"}
     }
 
 @media (max-width: 360px){
@@ -327,6 +387,9 @@ p{font-size:13px !important;}
     .count{margin-top: 100px;}
     .count-one{margin-top: 76px;}
     .team-info{width: calc(100% - 30px) !important; margin-left: 15px;}
+    .depart-meta-home{margin-bottom: 25px;}
+    .heading h1{font: bold 15px "Montserrat"}
+    .sponsors-static{padding: 0px 0 100px}
     }
 
 
@@ -335,9 +398,10 @@ p{font-size:13px !important;}
  header{display:none;}
 .responsive-menu{display:block;}	
 .container, .container-fluid { padding: 0 15px;}
-.gap {padding: 70px 0;}
+.gap {padding: 20px 0;}
 .heading h4, .heading ins{font-size:16px;}
-.depart-meta{width:100%;}
+.depart-meta{width:50%;}
+.depart-meta-home{width:33%; margin-right: 0.3%}
 .funfact {width:100%;}
 .select2-selection{width:190px;}
 .heading2 h4 i {

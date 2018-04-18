@@ -1,5 +1,4 @@
 <?php
-if ( !$_POST ) exit;
 require_once __DIR__.'/vendor/autoload.php';
 // Email address verification, do not edit.
 function isEmail( $email ) {
@@ -7,72 +6,73 @@ function isEmail( $email ) {
 }
 if ( !defined( "PHP_EOL" ) ) define( "PHP_EOL", "\r\n" );
 
-$email		 = $_POST['email'];
+$post = 0;
+$secret="6LecyDIUAAAAAOLTyOiM02CxRmgd3jMIp9nJNFdD";
+$email     = isset($_POST['email']) ? $_POST['email'] : '' ;
 $err = 0;
-if ( trim( $email ) == '' ) {
-    $msg .= '<div class="alert alert-danger">Debe completar el campo "EMAIL"</div>';
-    $err = 1;
+$result = 0;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $post = 1;
+    $response=$_POST["g-recaptcha-response"];
+    $verify=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}");
+    $captcha_success=json_decode($verify);
+    if ($captcha_success->success==false) {
+      //This user was not verified by recaptcha.
+      $msg .= '<div class="alert alert-danger">Captha incorrecto.</div>';
+      $err = 1;
+    }else if ($captcha_success->success==true) {
+
+      if ( trim( $email ) == '' ) {
+          $msg .= '<div class="alert alert-danger">Debe completar el campo "EMAIL"</div>';
+          $err = 1;
+      }
+      if($err == 0){
+        $from = 'comercial@lac.uy';
+        $address = "comercial@lac.uy";
+        $e_subject = 'Contacto vía Sitio web. Usuario en newsletter';
+        ob_start();
+        include ('mail-suscripcion.php');
+        $messageBody = ob_get_clean();
+
+        // Create the message
+        $message = Swift_Message::newInstance()
+
+          // Give the message a subject
+          ->setSubject($e_subject)
+
+          // Set the From address with an associative array
+          ->setFrom($from)
+
+          // Set the To addresses with an associative array
+          ->setTo(array('comercial@lac.uy'))
+
+          // Give it a body
+          ->setBody($messageBody, 'text/html');
+
+          // And optionally an alternative body
+          //->addPart('<q>Here is the message itself</q>', 'text/html');
+
+        $transport = Swift_MailTransport::newInstance();
+        $mailer = Swift_Mailer::newInstance($transport);
+        $result = $mailer->send($message);
+        if($result > 0){
+            echo "<div class='alert alert-success'>";
+            echo "<h1>Suscripción realizada con éxito</h1>";
+            echo "</div>";
+        } else {
+            echo "<div class='alert alert-danger'>Error al enviar la suscripción, por favor intente nuevamete en unos minutos</div>";
+        }
+      }
+    }
+}else{
+  header('Location: http://www.lac.com.uy');
 }
+
 
 if($err == 1){
 	echo $msg;
 	exit;
 }
-$from = 'laura@lauranozar.com';
-$address = "laura@lauranozar.com";
-$e_subject = 'Contacto vía Sitio web. Usuario en newsletter';
-ob_start();
-include ('mail-suscripcion.php');
-$messageBody = ob_get_clean();
 
-// Create the message
-$message = Swift_Message::newInstance()
 
-  // Give the message a subject
-  ->setSubject($e_subject)
-
-  // Set the From address with an associative array
-  ->setFrom($from)
-
-  // Set the To addresses with an associative array
-  ->setTo(array('rsantellan@gmail.com'))
-
-  // Give it a body
-  ->setBody($messageBody, 'text/html');
-
-  // And optionally an alternative body
-  //->addPart('<q>Here is the message itself</q>', 'text/html');
-
-$transport = Swift_MailTransport::newInstance();
-$mailer = Swift_Mailer::newInstance($transport);
-$result = $mailer->send($message);
-if($result > 0){
-    echo "<div class='alert alert-success'>";
-    echo "<h1>Suscripción realizada con éxito</h1>";
-    echo "</div>";
-} else {
-    echo "<div class='alert alert-danger'>Error al enviar la suscripción, por favor intente nuevamete en unos minutos</div>";
-}
-exit;
-$address = "laura@lauranozar.com";
-
-$e_subject		 = 'Suscripcion a Newsletter';
-$e_body			 = "La siguiente persona desea estar suscripita a su newsletter $email" . PHP_EOL . PHP_EOL;
-
-$message = wordwrap( $e_body . $e_content . $e_reply, 70 );
-$headers = "From: $email" . PHP_EOL;
-$headers .= "Reply-To: $email" . PHP_EOL;
-$headers .= "MIME-Version: 1.0" . PHP_EOL;
-$headers .= "Content-type: text/plain; charset=utf-8" . PHP_EOL;
-$headers .= "Content-Transfer-Encoding: quoted-printable" . PHP_EOL;
-
-if ( mail( $address, $e_subject, $message, $headers) ) {
-
-    echo "<div class='alert alert-success'>";
-    echo "<h1>Suscripción realizada con éxito</h1>";
-    echo "</div>";
-
-} else {
-    echo "<div class='alert alert-danger'>Error al enviar la suscripción, por favor intente nuevamete en unos minutos</div>";
-}
 exit;

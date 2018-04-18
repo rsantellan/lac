@@ -4,6 +4,7 @@
 <?php $pagina = 'contacto';?>
 <?php include('_head.php');?>
 <body>
+<?php include_once("analyticstracking.php") ?>
 <div class="theme-layout">
 
 <?php include('_header.php');?>
@@ -14,10 +15,10 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="page-top overlap black-layer">
-							<img src="images/resources/trabaja-top.jpg" alt="">
+							<img src="images/resources/trabaja-top.jpg" alt="Cabezal Trabajar en LAC">
 							<div class="top-heading">
 								<h3>trabaja con <b>nosotros</b></h3>
-								<span>VANGUARDIA AL SERVICIO DE LA SALUD</span>
+								<span>Tecnología e innovación al servicio de la salud</span>
 							</div>
 						</div>
 					</div>
@@ -33,8 +34,8 @@
 					<div class="col-md-4">
 						<div class="lab-contact">
 							<div class="heading4">
-								<h4>Quiere trabajar con <ins>nosotros?</ins></h4>
-								<p>complete el formulario de y con guardaremos su cv en nuestra base de datos.</p>
+								<h4 style="text-transform:none;">¿Quiere trabajar con <ins style="text-transform:none;">nosotros?</ins></h4>
+								<p>Complete el formulario y guardaremos su cv en nuestra base de datos.</p>
 							</div>
 							<ul class="lab-contact-detail">
 								<li>
@@ -43,11 +44,11 @@
 								</li>
 								<li>
 									<i class="fa fa-envelope"></i>
-									<span><b>EMAIL</b><ins><a href="info@lac.com.uy">info@lac.com.uy</a></ins></span>										
+									<span><b>EMAIL</b><ins><a href="mailto:acliente@lac.com.uy">acliente@lac.com.uy</a></ins></span>										
 								</li>
 								<li>
 									<i class="fa fa-home"></i>
-									<span><b>dirección</b><ins>Av. Italia 2595</ins></span>										
+									<span><b>dirección</b><ins>Av. Italia 2595, Montevideo, Uruguay</ins></span>										
 								</li>
 							</ul>
 						</div>
@@ -67,15 +68,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<ul class="sponsors">
-							<li><a href="http://www.mayomedicallaboratories.com/index.html" title="Clínica Mayo" target="blank"><img src="images/resources/sponsor-1.png" alt=""></a></li>
-							<li><a href="http://www.organismouruguayodeacreditacion.org/Pagina_Principal.htm" title="OUA (15189)" target="blank"><img src="images/resources/sponsor-2.png" alt=""></a></li>
-							<li><a href="http://aladil.org" title="Aladil" target="blank"><img src="images/resources/sponsor-3.png" alt=""></a></li>
-							<li><a href="http://www.mayomedicallaboratories.com/index.html" title="Clínica Mayo" target="blank"><img src="images/resources/sponsor-1.png" alt=""></a></li>
-							<li><a href="http://www.organismouruguayodeacreditacion.org/Pagina_Principal.htm" title="OUA (15189)" target="blank"><img src="images/resources/sponsor-2.png" alt=""></a></li>
-							<li><a href="http://aladil.org" title="Aladil" target="blank"><img src="images/resources/sponsor-3.png" alt=""></a></li>
-
-						</ul>
+						<?php include('_sponsors.php');?>
 					</div>
 				</div>
 			</div>
@@ -86,6 +79,21 @@
 
 </div>
 
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 837265055;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/837265055/?guid=ON&amp;script=0"/>
+</div>
+</noscript>
 		
 
 </body>	

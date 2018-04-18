@@ -6,7 +6,7 @@
 <body>
 	<table cellpadding="0" cellspacing="0" style="width:800px; margin:25px 0;">
     	<tr>
-        	<td><img src="http://lac.lauranozar.com/images/logo-mail.jpg"  style="margin-bottom:20px;"/></td>
+        	<td><img src="http://lac.com.uy/images/logo-mail.jpg"  style="margin-bottom:20px;" alt="LAC"/></td>
         </tr>
         <tr>
         	<td style="font-size:13px; font-weight:bold; padding:5px 0 5px 0; font-family:Lucida Grande, Lucida Sans Unicode, sans-serif; color:#a12457; fext-align:left">Suscripción a Newsletter</td>
